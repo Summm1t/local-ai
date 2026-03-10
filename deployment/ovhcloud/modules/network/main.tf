@@ -1,3 +1,11 @@
+terraform {
+  required_providers {
+    ovh = {
+      source = "ovh/ovh"
+    }
+  }
+}
+
 variable "name" {
   description = "Name of the network"
   type        = string

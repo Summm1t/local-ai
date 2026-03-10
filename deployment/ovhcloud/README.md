@@ -13,7 +13,17 @@ The deployment consists of:
 ## Prerequisites
 
 1.  **OVHCloud Account**: You need an active OVHCloud account and a Public Cloud project.
+    Create your public cloud project via [Create a Public Cloud project](https://manager.eu.ovhcloud.com/#/public-cloud/?onboarding).
 2.  **API Credentials**: Create an Application Key, Application Secret, and Consumer Key at [OVH API Console](https://eu.api.ovh.com/createToken/).
+    The following rights (REST API calls) are required at minimum for the `ovh` provider:
+    - `GET /auth/details`
+    - `GET /cloud/project`
+    - `GET /cloud/project/{serviceName}`
+    - `GET /cloud/project/{serviceName}/*`
+    - `POST /cloud/project/{serviceName}/*`
+    - `DELETE /cloud/project/{serviceName}/*`
+    
+    *Note: Replace `{serviceName}` with your Public Cloud Project ID (or use `*` for all).*
 3.  **Terraform**: Installed locally.
 
 ## Usage
