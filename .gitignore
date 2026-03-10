@@ -6,3 +6,7 @@ shared-backup/
 .env.test
 searxng/settings.yml
 searxng/uwsgi*
+deployment/ovhcloud/.terraform
+terraform.tfvars
+terraform.tfstate
+terraform.tfstate.backup
