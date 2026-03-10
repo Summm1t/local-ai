@@ -38,5 +38,6 @@ resource "ovh_cloud_project_network_private_subnet" "subnet" {
 }
 
 output "network_id" {
-  value = ovh_cloud_project_network_private.private_net.id
+  value = tolist(ovh_cloud_project_network_private.private_net.regions_attributes)[0].openstackid
+  depends_on = [ovh_cloud_project_network_private_subnet.subnet]
 }

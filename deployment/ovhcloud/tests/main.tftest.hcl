@@ -4,6 +4,9 @@ variables {
   ovh_application_secret = "test_secret"
   ovh_consumer_key       = "test_consumer"
   project_id             = "test_project"
+  project_name           = "localllm-test"
+  os_user_name           = "test_os_user"
+  os_password            = "test_os_password"
   ssh_public_key         = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8"
 }
 

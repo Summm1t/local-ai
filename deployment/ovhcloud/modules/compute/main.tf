@@ -39,11 +39,11 @@ variable "ssh_public_key" {
   type        = string
 }
 
-resource "ovh_cloud_project_user" "user" {
-  service_name = var.project_id
-  description  = "User for OpenStack"
-  role_name    = "compute_operator"
-}
+# resource "ovh_cloud_project_user" "user" {
+#   service_name = var.project_id
+#   description  = "User for OpenStack"
+#   role_name    = "compute_operator"
+# }
 
 resource "openstack_compute_keypair_v2" "keypair" {
   name       = "local-ai-keypair"
@@ -56,7 +56,7 @@ resource "openstack_compute_instance_v2" "instance" {
   region          = var.region
   flavor_name     = var.flavor_name
   key_pair        = openstack_compute_keypair_v2.keypair.name
-  security_groups = [var.security_group_name]
+  security_groups = [ var.security_group_name ]
 
   # Debian 12 (latest stable)
   image_name = "Debian 12"
