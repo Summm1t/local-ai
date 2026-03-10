@@ -40,6 +40,13 @@ The deployment consists of:
     terraform apply
     ```
 
+## Testing
+
+Run the included Terraform tests:
+```bash
+terraform test
+```
+
 4.  **Complete the Setup**:
     Once the instance is up (it may take a few minutes for cloud-init to finish), SSH into it:
     ```bash
@@ -49,6 +56,10 @@ The deployment consists of:
     ```bash
     cd /opt/local-ai
     nano .env
+    ```
+    Alternatively, use the provided script to generate random secrets:
+    ```bash
+    ./deployment/ovhcloud/scripts/setup-env.sh
     ```
     Then start the services:
     ```bash

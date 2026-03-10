@@ -8,3 +8,9 @@ folowing into account:
 2. Make the Terraform scripts modular, and use best practices. Try to make this unbound to OVHCloud,
    so that in the future other cloud providers can be added (AWS, Azure, Google Cloud, ...)
 3. Make this application secure, so that only the needed ports are opened to the outer world.
+
+Create tests for the Terraform scripts
+
+Create a bash script under deployment/ovhcloud/scripts which creates random passwords, and replaces
+the passwords in .env.example file, after copying this file as ".env"
+

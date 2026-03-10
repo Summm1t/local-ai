@@ -21,12 +21,13 @@ resource "openstack_compute_secgroup_v2" "secgroup" {
 }
 
 resource "openstack_compute_secgroup_rule_v2" "ssh" {
+  count             = length(var.allowed_ips)
   direction         = "ingress"
   ethertype         = "IPv4"
   protocol          = "tcp"
   port_range_min    = 22
   port_range_max    = 22
-  remote_ip_prefix  = "0.0.0.0/0" # Should ideally use var.allowed_ips
+  remote_ip_prefix  = var.allowed_ips[count.index]
   security_group_id = openstack_compute_secgroup_v2.secgroup.id
   region            = var.region
 }

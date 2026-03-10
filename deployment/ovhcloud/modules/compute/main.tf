@@ -58,6 +58,10 @@ resource "openstack_compute_instance_v2" "instance" {
     uuid = var.network_id
   }
 
+  metadata = {
+    project = "local-ai"
+  }
+
   user_data = <<-EOF
     #cloud-config
     package_update: true
@@ -90,8 +94,10 @@ resource "openstack_compute_instance_v2" "instance" {
       - mkdir -p /opt/local-ai
       - git clone https://github.com/coleam00/local-ai-packaged.git /opt/local-ai
       - cd /opt/local-ai
-      - cp .env.example .env
-      # Note: User will need to fill in the .env with their secrets
+      - chmod +x deployment/ovhcloud/scripts/setup-env.sh
+      - ./deployment/ovhcloud/scripts/setup-env.sh
+      # Auto-start with GPU profile
+      - docker compose --profile gpu-nvidia up -d
 
   EOF
 }
